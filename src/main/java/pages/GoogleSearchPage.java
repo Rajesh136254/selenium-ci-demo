@@ -1,12 +1,14 @@
 package pages;
 
 
-import com.google.common.io.Resources;
+import resources.Resources;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class GoogleSearchPage {
-   // Resourcess ReSources;
+
+
+
     WebDriver driver;
     By searchBox = By.name("q");
 
@@ -14,7 +16,8 @@ public class GoogleSearchPage {
         this.driver = driver;
     }
     public void googleOpen(){
-        driver.navigate().to("https://www.google.com");
+
+        driver.navigate().to(Resources.url);
     }
     public void Search(String text){
         driver.findElement(searchBox).sendKeys(text);
