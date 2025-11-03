@@ -17,7 +17,7 @@ public class GoogleSearchPage {
     }
     public void googleOpen(){
 
-        driver.navigate().to(Resources.urls);
+        driver.navigate().to(Resources.url);
     }
     public void Search(String text){
         driver.findElement(searchBox).sendKeys(text);
