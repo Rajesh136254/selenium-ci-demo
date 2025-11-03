@@ -1,5 +1,5 @@
 package resources;
 
 public class Resources {
-    public static String url = "https://www.google.com";
+    public static String urls = "https://www.google.com";
 }
