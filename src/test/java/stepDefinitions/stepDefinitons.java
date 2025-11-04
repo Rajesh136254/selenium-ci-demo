@@ -1,4 +1,7 @@
 package stepDefinitions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import java.time.Duration;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -24,7 +27,20 @@ public class stepDefinitons {
     }
 
     @Then("Page title should contain {string}")
-    public void Page_title_should_contain(String text){
-        Assert.assertTrue(google.getTitle().contains(text));
+    public void Page_title_should_contain(String text) {
+        WebDriverWait wait = new WebDriverWait( google.driver, Duration.ofSeconds(10));
+
+        // Wait until the title contains the expected text
+        wait.until(ExpectedConditions.titleContains(text));
+
+        String actualTitle = google.getTitle();
+
+
+        // Assertion with clear message in case of failure
+        Assert.assertTrue(
+                "Expected title to contain: " + text + " but got: " + actualTitle,
+                actualTitle.contains(text)
+        );
     }
+
 }
