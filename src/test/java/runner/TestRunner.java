@@ -12,8 +12,8 @@ import io.cucumber.junit.CucumberOptions;
         // 👉 To run only 2nd scenario
         plugin = {
                 "pretty",
-                "html:target/cucumber-reports.html",
-                "json:target/cucumber.json"
+                "json:target/cucumber.json",
+                "html:target/cucumber-html-report"
         },
         monochrome = true
 )
