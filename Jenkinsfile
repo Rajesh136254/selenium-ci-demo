@@ -26,10 +26,19 @@ pipeline {
 
         stage('Report') {
             steps {
-                echo 'Generating reports...'
-                // Add Allure or JUnit report steps here if needed
+                echo 'Generating Cucumber report...'
+                bat 'mvn verify'
+                publishHTML([
+                        allowMissing: false,
+                        alwaysLinkToLastBuild: true,
+                        keepAll: true,
+                        reportDir: 'target/cucumber-html-report',
+                        reportFiles: 'overview-features.html',
+                        reportName: 'Cucumber HTML Report'
+                ])
             }
         }
+
     }
 
     post {
