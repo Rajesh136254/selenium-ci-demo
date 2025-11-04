@@ -9,7 +9,7 @@ public class GoogleSearchPage {
 
 
 
-    WebDriver driver;
+    public WebDriver driver;
     By searchBox = By.name("q");
 
     public GoogleSearchPage(WebDriver driver){

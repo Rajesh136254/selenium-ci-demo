@@ -1,0 +1,110 @@
+{
+  "version": "1.0",
+  "records": [
+    {
+      "filePath": "C:/Users/Chakreesh/IdeaProjects/ChromeProjectSelnium/src/test/java/stepDefinitions/stepDefinitons.java",
+      "timestamp": 1762248908172,
+      "startOffset": 674,
+      "endOffset": 1058,
+      "codeContent": "WebDriverWait wait \u003d new WebDriverWait(driver, Duration.ofSeconds(10));\nwait.until(ExpectedConditions.titleContains(expectedTitle));\n\nString actualTitle \u003d driver.getTitle();\nSystem.out.println(\"Actual Page Title: \" + actualTitle);\nAssert.assertTrue(\n    \"Title mismatch! Expected to contain: \" + expectedTitle + \", but was: \" + actualTitle,\n    actualTitle.contains(expectedTitle)\n);\n",
+      "aiProbability": 95,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 10
+    },
+    {
+      "filePath": "C:/Users/Chakreesh/IdeaProjects/ChromeProjectSelnium/src/test/java/stepDefinitions/stepDefinitons.java",
+      "timestamp": 1762248919492,
+      "startOffset": 189,
+      "endOffset": 241,
+      "codeContent": "import org.openqa.selenium.support.ui.WebDriverWait;",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Chakreesh/IdeaProjects/ChromeProjectSelnium/src/test/java/stepDefinitions/stepDefinitons.java",
+      "timestamp": 1762248921966,
+      "startOffset": 189,
+      "endOffset": 246,
+      "codeContent": "import org.openqa.selenium.support.ui.ExpectedConditions;",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Chakreesh/IdeaProjects/ChromeProjectSelnium/src/test/java/stepDefinitions/stepDefinitons.java",
+      "timestamp": 1762248924347,
+      "startOffset": 352,
+      "endOffset": 378,
+      "codeContent": "import java.time.Duration;",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Chakreesh/IdeaProjects/ChromeProjectSelnium/src/test/java/stepDefinitions/stepDefinitons.java",
+      "timestamp": 1762249052205,
+      "startOffset": 867,
+      "endOffset": 898,
+      "codeContent": "org.openqa.selenium.support.ui.",
+      "aiProbability": 70,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Chakreesh/IdeaProjects/ChromeProjectSelnium/src/test/java/stepDefinitions/stepDefinitons.java",
+      "timestamp": 1762249053447,
+      "startOffset": 726,
+      "endOffset": 757,
+      "codeContent": "org.openqa.selenium.support.ui.",
+      "aiProbability": 70,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Chakreesh/IdeaProjects/ChromeProjectSelnium/src/test/java/stepDefinitions/stepDefinitons.java",
+      "timestamp": 1762249106159,
+      "startOffset": 764,
+      "endOffset": 1353,
+      "codeContent": "@Then(\"Page title should contain {string}\")\npublic void Page_title_should_contain(String text) {\n    WebDriverWait wait \u003d new WebDriverWait(google, Duration.ofSeconds(10));\n\n    // Wait until the title contains the expected text\n    wait.until(ExpectedConditions.titleContains(text));\n\n    String actualTitle \u003d google.getTitle();\n    System.out.println(\"Actual Page Title: \" + actualTitle);\n\n    // Assertion with clear message in case of failure\n    Assert.assertTrue(\n        \"Expected title to contain: \" + text + \" but got: \" + actualTitle,\n        actualTitle.contains(text)\n    );\n}\n",
+      "aiProbability": 70,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 17
+    },
+    {
+      "filePath": "/stepDefinitons.java",
+      "timestamp": 1762249158374,
+      "startOffset": 912,
+      "endOffset": 943,
+      "codeContent": "(org.openqa.selenium.WebDriver)",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "/stepDefinitons.java",
+      "timestamp": 1762249362124,
+      "startOffset": 920,
+      "endOffset": 940,
+      "codeContent": "IntellijIdeaRulezzz ",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    }
+  ],
+  "toolStats": {
+    "AI Assistant": {
+      "usageCount": 9,
+      "totalLines": 34
+    }
+  }
+}
