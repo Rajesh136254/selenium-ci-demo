@@ -11,7 +11,7 @@ import org.openqa.selenium.WebDriver;
 import pages.GoogleSearchPage;
 import utility.Hooks;
 
-public class stepDefinitons {
+public class stepDefinitions {
     WebDriver driver = Hooks.driver;
     GoogleSearchPage google = new GoogleSearchPage( driver);
 
