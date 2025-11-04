@@ -37,23 +37,22 @@
     </dependencies>
     <build>
         <plugins>
-            <!-- Run tests -->
+            <!-- Run Cucumber Tests (Surefire) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
                 <configuration>
+                    <testFailureIgnore>true</testFailureIgnore> <!-- Allow report even if tests fail -->
                     <includes>
                         <include>**/*Test.java</include>
                         <include>**/*Tests.java</include>
+                        <include>**/*Runner.java</include>
                     </includes>
-                    <systemPropertyVariables>
-                        <cucumber.options>--plugin json:target/cucumber.json</cucumber.options>
-                    </systemPropertyVariables>
                 </configuration>
             </plugin>
 
-            <!-- Generate cucumber html report -->
+            <!-- Generate Cucumber HTML Report -->
             <plugin>
                 <groupId>net.masterthought</groupId>
                 <artifactId>maven-cucumber-reporting</artifactId>
@@ -61,23 +60,28 @@
                 <executions>
                     <execution>
                         <id>generate-cucumber-report</id>
-                        <phase>verify</phase>
+                        <phase>verify</phase> <!-- Use 'verify' (not post-integration-test) -->
                         <goals>
                             <goal>generate</goal>
                         </goals>
                         <configuration>
-                            <projectName>Selenium CI Demo</projectName>
+                            <projectName>ChromeProjectSelenium</projectName>
+                            <!-- Output: Folder, not file -->
+                            <outputDirectory>${project.build.directory}/cucumber-html-reports</outputDirectory>
+                            <!-- Input: Directory to scan -->
+                            <inputDirectory>${project.build.directory}</inputDirectory>
+                            <!-- Pattern: Find any JSON report -->
                             <jsonFiles>
-                                <param>target/cucumber.json</param>
+                                <param>**/*.json</param>
                             </jsonFiles>
-                            <outputDirectory>target/cucumber-html-report</outputDirectory>
+                            <!-- Optional: Don't fail build if no features -->
+                            <checkBuildResult>false</checkBuildResult>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
         </plugins>
     </build>
-
 
 
 

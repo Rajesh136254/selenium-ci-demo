@@ -1,21 +1,18 @@
 package runner;
 
-import junit.textui.TestRunner;
-import org.junit.runner.RunWith;
 import io.cucumber.junit.Cucumber;
 import io.cucumber.junit.CucumberOptions;
+import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
         features = "src/test/java/features",
         glue = {"stepDefinitions", "utility"},
-        // 👉 To run only 2nd scenario
         plugin = {
                 "pretty",
-                "json:target/cucumber.json",
-                "html:target/cucumber-html-report"
+                "json:target/cucumber.json"  // Only JSON for reporting plugin
+                // Remove "html:..." → let masterthought generate proper report
         },
         monochrome = true
 )
-class TestsRunner {
-}
+public class TestsRunner { } // Use 'public' class

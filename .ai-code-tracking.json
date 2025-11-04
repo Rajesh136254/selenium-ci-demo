@@ -99,12 +99,67 @@
       "aiTool": "AI Assistant",
       "detectionMethod": "REALTIME_SPEED_ANALYSIS",
       "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Chakreesh/IdeaProjects/ChromeProjectSelnium/src/test/java/runner/TestRunner.java",
+      "timestamp": 1762254819891,
+      "startOffset": 474,
+      "endOffset": 519,
+      "codeContent": ",\n                \"junit:target/cucumber.xml\"",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 2
+    },
+    {
+      "filePath": "/TestRunner.java",
+      "timestamp": 1762254824324,
+      "startOffset": 531,
+      "endOffset": 551,
+      "codeContent": "IntellijIdeaRulezzz;",
+      "aiProbability": 90,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 1
+    },
+    {
+      "filePath": "C:/Users/Chakreesh/IdeaProjects/ChromeProjectSelnium/src/test/java/runner/TestRunner.java",
+      "timestamp": 1762257077042,
+      "startOffset": 0,
+      "endOffset": 568,
+      "codeContent": "package runner;\n\nimport org.junit.runner.RunWith;\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\n\n@RunWith(Cucumber.class)\n@CucumberOptions(\n    features \u003d \"src/test/java/features\",         // ✅ correct path\n    glue \u003d {\"stepDefinitions\"},                  // ✅ your step definition package\n    plugin \u003d {\n        \"pretty\",\n        \"json:target/cucumber.json\",             // ✅ generates cucumber.json\n        \"html:target/cucumber-html-report\"       // ✅ generates HTML report\n    },\n    monochrome \u003d true\n)\npublic class TestsRunner {\n}\n",
+      "aiProbability": 95,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 20
+    },
+    {
+      "filePath": "C:/Users/Chakreesh/IdeaProjects/ChromeProjectSelnium/src/test/java/runner/TestsRunner.java",
+      "timestamp": 1762257896714,
+      "startOffset": 0,
+      "endOffset": 535,
+      "codeContent": "package runner;\n\nimport junit.textui.TestRunner;\nimport org.junit.runner.RunWith;\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\n\n@RunWith(Cucumber.class)\n@CucumberOptions(\n        features \u003d \"src/test/java/features\",\n        glue \u003d {\"stepDefinitions\", \"utility\"},\n        // 👉 To run only 2nd scenario\n        plugin \u003d {\n                \"pretty\",\n                \"json:target/cucumber.json\",\n                \"html:target/cucumber-html-report\"\n        },\n        monochrome \u003d true\n)\nclass TestsRunner {\n}",
+      "aiProbability": 95,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 21
+    },
+    {
+      "filePath": "C:/Users/Chakreesh/IdeaProjects/ChromeProjectSelnium/src/test/java/runner/TestsRunner.java",
+      "timestamp": 1762262529503,
+      "startOffset": 0,
+      "endOffset": 512,
+      "codeContent": "package runner;\n\nimport io.cucumber.junit.Cucumber;\nimport io.cucumber.junit.CucumberOptions;\nimport org.junit.runner.RunWith;\n\n@RunWith(Cucumber.class)\n@CucumberOptions(\n    features \u003d \"src/test/java/features\",\n    glue \u003d {\"stepDefinitions\", \"utility\"},\n    plugin \u003d {\n        \"pretty\",\n        \"json:target/cucumber.json\"  // Only JSON for reporting plugin\n        // Remove \"html:...\" → let masterthought generate proper report\n    },\n    monochrome \u003d true\n)\npublic class TestsRunner { } // Use \u0027public\u0027 class",
+      "aiProbability": 95,
+      "aiTool": "AI Assistant",
+      "detectionMethod": "REALTIME_SPEED_ANALYSIS",
+      "lineCount": 18
     }
   ],
   "toolStats": {
     "AI Assistant": {
-      "usageCount": 9,
-      "totalLines": 34
+      "usageCount": 14,
+      "totalLines": 96
     }
   }
 }
