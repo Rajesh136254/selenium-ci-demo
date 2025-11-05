@@ -1,33 +1,37 @@
 pipeline {
     agent any
+
     tools {
-        maven 'Maven' // the same name you gave in Jenkins
+        maven 'Maven' // Must match name in Global Tool Configuration
     }
+
+    // Run every Monday & Friday at 10:00 AM
+    triggers {
+        cron('30 11 * * *')
+    }
+
     stages {
         stage('Checkout') {
             steps {
+                echo 'Checking out code from GitHub...'
                 git branch: 'main', url: 'https://github.com/Rajesh136254/selenium-ci-demo.git'
             }
         }
 
-        stage('Build') {
+        stage('Build & Test') {
             steps {
-                echo 'Building project...'
-                bat 'mvn clean compile'
+                echo 'Building project and running Cucumber tests...'
+                bat 'mvn clean verify'  // compile + test + generate report
             }
         }
 
-        stage('Test') {
+        stage('Publish Report') {
             steps {
-                echo 'Running Selenium tests...'
-                bat 'mvn test'
-            }
-        }
+                echo 'Publishing Cucumber HTML Report...'
 
-        stage('Report') {
-            steps {
-                echo 'Generating Cucumber report...'
-                bat 'mvn verify'
+                // Keep report across builds
+                archiveArtifacts artifacts: 'target/cucumber-html-reports/**', allowEmptyArchive: true
+
                 publishHTML([
                         allowMissing: false,
                         alwaysLinkToLastBuild: true,
@@ -38,18 +42,35 @@ pipeline {
                 ])
             }
         }
-
     }
 
     post {
         always {
-            echo 'Pipeline finished.'
+            echo 'Pipeline execution completed.'
         }
+
         success {
-            echo 'Build succeeded!'
+            echo 'SUCCESS: Build and tests passed!'
+            // Optional: Send success email (uncomment if needed)
+            // mail to: 'team@company.com',
+            //      subject: "SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            //      body: "All good! View report: ${env.BUILD_URL}Cucumber_20HTML_20Report"
         }
+
         failure {
-            echo 'Build failed!'
+            echo 'FAILURE: Build or tests failed!'
+            mail to: 'chakreesh@snovasys.com',  // CHANGE THIS TO YOUR EMAIL
+                    subject: "FAILED: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+                    body: """
+                 The pipeline failed.
+                 
+                 Job: ${env.JOB_NAME}
+                 Build: #${env.BUILD_NUMBER}
+                 URL: ${env.BUILD_URL}
+                 
+                 Check console output: ${env.BUILD_URL}console
+                 View report (if generated): ${env.BUILD_URL}Cucumber_20HTML_20Report
+                 """
         }
     }
 }
